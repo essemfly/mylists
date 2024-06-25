@@ -5,8 +5,24 @@ import Header from "@/app/components/Header";
 import RequestForm from "@/app/components/RequestForm";
 import NaverListComponent from "./components/NaverList";
 import IntroComponent from "./components/IntroComponent";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [webhookUrl, setWebhookUrl] = useState("");
+
+  useEffect(() => {
+    // window.env가 로드될 때까지 대기
+    const interval = setInterval(() => {
+      if (window.env && window.env.WEBHOOK_URL) {
+        setWebhookUrl(window.env.WEBHOOK_URL);
+        clearInterval(interval);
+      }
+    }, 100);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Head>
@@ -35,7 +51,7 @@ export default function Home() {
         />
         <meta name="twitter:image" content="/path/to/image.jpg" />
         <link rel="icon" href="/favicon.ico" />
-        <script async src="config.js"></script>
+        <script async src="/config.js"></script>
       </Head>
       <Header />
       <div className="container mx-auto p-4">
