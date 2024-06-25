@@ -28,15 +28,14 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    environment:
+        name: prod
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set environment variables
-        run: echo "WEBHOOK_URL=${{ secrets.WEBHOOK_URL }}" >> $GITHUB_ENV
-        env:
-          WEBHOOK_URL: ${{ secrets.prod.WEBHOOK_URL }}
       - name: Build Project
-        run: echo "window.env = { WEBHOOK_URL: '${{ env.WEBHOOK_URL }}' };" > public/config.js
+        run: |
+        echo "window.env = { WEBHOOK_URL: '${{ secrets.WEBHOOK_URL }}' };" > public/config.js
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
