@@ -8,6 +8,8 @@ interface FormData {
     URL: string;
 }
 
+const webhookURL = 'https://hooks.zapier.com/hooks/catch/19263634/2bsnzfx/'
+
 function RequestForm() {
     const [formData, setFormData] = useState<FormData>({ name: '', description: '', URL: '' });
 
@@ -16,9 +18,31 @@ function RequestForm() {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        alert(`Request submitted for: ${formData.name}`);
+
+        const message = `Request submitted for:\nName: ${formData.name}\nDescription: ${formData.description}\nURL: ${formData.URL}`;
+        const payload = { text: message };
+
+        try {
+            const response = await fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            alert('요청이 완료되었습니다! 며칠 후에 리스트에 추가하여 업데이트하겠습니다. 감사합니다!');
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
+            alert('요청을 처리하는 중 문제가 발생했습니다.');
+        }
+
         setFormData({ name: '', description: '', URL: '' });
     };
 

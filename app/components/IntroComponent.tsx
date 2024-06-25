@@ -5,7 +5,7 @@ const IntroComponent: React.FC = () => {
             <p className="text-2xl text-gray-700 mb-4"><span className="text-red-500">유튜브</span>, <span className="text-gray-700">블로그</span>, <span className="text-pink-500">인스타그램</span></p>
             <p className="text-lg text-gray-700">좋아하는 맛집 리스트를 <b className="text-green-500">네이버 지도</b>에 저장하세요</p>
             
-            <p className="mb-4">클릭하여 쉽게 이용할 수 있습니다.</p>
+            <p className="mb-10">클릭하여 쉽게 이용할 수 있습니다.</p>
             <hr className="border-gray-300" />
         </div>
     );
