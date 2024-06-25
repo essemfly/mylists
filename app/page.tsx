@@ -1,6 +1,7 @@
 "use client";
 
 import Head from "next/head";
+import Script from 'next/script';
 import Header from "@/app/components/Header";
 import RequestForm from "@/app/components/RequestForm";
 import NaverListComponent from "./components/NaverList";
@@ -53,8 +54,13 @@ export default function Home() {
         />
         <meta name="twitter:image" content="/path/to/image.jpg" />
         <link rel="icon" href="/favicon.ico" />
-        <script async src="/config.js"></script>
       </Head>
+      <Script
+        src="/config.js"
+        strategy="afterInteractive"
+        onLoad={() => console.log("config.js loaded")}
+        onError={(e) => console.error("Failed to load config.js", e)}
+      />
       <Header />
       <div className="container mx-auto p-4">
         <IntroComponent />
