@@ -57,7 +57,7 @@ export default function Home() {
       <div className="container mx-auto p-4">
         <IntroComponent />
         <NaverListComponent />
-        <RequestForm />
+        <RequestForm webhookURL={webhookUrl}/>
         <div className="text-gray-500 mt-4 mb-8 text-center">
           <p className="text-lg"> 계속 영상이 올라올때마다 업데이트되며 </p>
           <p className="text-lg">유지될 예정이니편하게 이용해주세요</p>

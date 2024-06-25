@@ -8,7 +8,7 @@ interface FormData {
   URL: string;
 }
 
-function RequestForm() {
+function RequestForm({ webhookURL }: { webhookURL: string }) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     description: "",
@@ -27,7 +27,7 @@ function RequestForm() {
     const payload = { text: message };
 
     try {
-      const response = await fetch(window.env.WEBHOOK_URL, {
+      const response = await fetch(webhookURL, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
