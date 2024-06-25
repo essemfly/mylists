@@ -8,8 +8,6 @@ interface FormData {
   URL: string;
 }
 
-const webhookURL = "https://hooks.slack.com/services/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";
-
 function RequestForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -29,7 +27,7 @@ function RequestForm() {
     const payload = { text: message };
 
     try {
-      const response = await fetch(webhookURL, {
+      const response = await fetch(window.env.WEBHOOK_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
