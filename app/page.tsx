@@ -1,7 +1,7 @@
 "use client";
 
 import Head from "next/head";
-import Script from 'next/script';
+import Script from "next/script";
 import Header from "@/app/components/Header";
 import RequestForm from "@/app/components/RequestForm";
 import NaverListComponent from "./components/NaverList";
@@ -12,13 +12,10 @@ export default function Home() {
   const [webhookUrl, setWebhookUrl] = useState("");
 
   useEffect(() => {
-    // window.env가 로드될 때까지 대기
-    console.log("window.env", window.env);
     const interval = setInterval(() => {
       if (window.env && window.env.WEBHOOK_URL) {
         setWebhookUrl(window.env.WEBHOOK_URL);
         clearInterval(interval);
-        console.log("window.env2", window.env);
       }
     }, 100);
 
@@ -58,7 +55,6 @@ export default function Home() {
       <Script
         src="/config.js"
         strategy="afterInteractive"
-        onLoad={() => console.log("config.js loaded")}
         onError={(e) => console.error("Failed to load config.js", e)}
       />
       <Header />

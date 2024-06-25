@@ -27,7 +27,6 @@ function RequestForm({ webhookURL }: { webhookURL: string }) {
     const payload = { text: message };
 
     try {
-      console.log("webhookURL", webhookURL);
       const response = await fetch(webhookURL, {
         method: "POST",
         headers: {
