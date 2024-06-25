@@ -12,10 +12,12 @@ export default function Home() {
 
   useEffect(() => {
     // window.env가 로드될 때까지 대기
+    console.log("window.env", window.env);
     const interval = setInterval(() => {
       if (window.env && window.env.WEBHOOK_URL) {
         setWebhookUrl(window.env.WEBHOOK_URL);
         clearInterval(interval);
+        console.log("window.env2", window.env);
       }
     }, 100);
 
@@ -57,7 +59,7 @@ export default function Home() {
       <div className="container mx-auto p-4">
         <IntroComponent />
         <NaverListComponent />
-        <RequestForm webhookURL={webhookUrl}/>
+        {webhookUrl && <RequestForm webhookURL={webhookUrl} />}
         <div className="text-gray-500 mt-4 mb-8 text-center">
           <p className="text-lg"> 계속 영상이 올라올때마다 업데이트되며 </p>
           <p className="text-lg">유지될 예정이니편하게 이용해주세요</p>
