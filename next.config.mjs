@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    assetPrefix: '',
-    basePath: '',
+    basePath: '/mylists',
+    assetPrefix: '/mylists/',  
     trailingSlash: true,
     images: {
         unoptimized: true,
