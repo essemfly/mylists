@@ -33,9 +33,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build Project
-        run: |
-        echo "window.env = { WEBHOOK_URL: '${{ secrets.WEBHOOK_URL }}' };" > public/config.js
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
