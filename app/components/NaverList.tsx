@@ -39,7 +39,7 @@ const seedData: NaverList[] = [
     URL: 'https://www.youtube.com/@sungsikyung',
     listURL: 'https://naver.me/5A3xZYX8',
     screenshotURL: '/images/sungsikyung.png',
-    numRestaurants: 228,
+    numRestaurants: 115,
     numUsers: 2,
     updatedAt: '2024-06-25',
   } as NaverList,
