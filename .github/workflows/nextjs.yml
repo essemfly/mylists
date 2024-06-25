@@ -57,12 +57,10 @@ jobs:
         run: bun install
       - name: Build with Next.js
         run: bun next build
-      - name: Export with Next.js
-        run: bun next export
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: .next
 
   # Deployment job
   deploy:
