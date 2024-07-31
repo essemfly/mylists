@@ -19,9 +19,9 @@ const seedData: NaverList[] = [
     URL: 'https://www.youtube.com/@kim3meals',
     listURL: 'https://naver.me/5qa1jxsx',
     screenshotURL: '/images/kimsawon.png',
-    numRestaurants: 228,
-    numUsers: 1372,
-    updatedAt: '2024-06-23',
+    numRestaurants: 235,
+    numUsers: 1610,
+    updatedAt: '2024-08-01',
   } as NaverList,
   {
     name: '백종원의 님아 그 시장을 가오',
@@ -30,8 +30,8 @@ const seedData: NaverList[] = [
     listURL: 'https://naver.me/5fPKUUew',
     screenshotURL: '/images/market.png',
     numRestaurants: 45,
-    numUsers: 324,
-    updatedAt: '2024-04-20',
+    numUsers: 458,
+    updatedAt: '2024-08-01',
   } as NaverList,
   {
     name: '성시경의 먹을텐데',
@@ -39,9 +39,9 @@ const seedData: NaverList[] = [
     URL: 'https://www.youtube.com/@sungsikyung',
     listURL: 'https://naver.me/5A3xZYX8',
     screenshotURL: '/images/sungsikyung.png',
-    numRestaurants: 115,
-    numUsers: 2,
-    updatedAt: '2024-06-25',
+    numRestaurants: 119,
+    numUsers: 1389,
+    updatedAt: '2024-08-01',
   } as NaverList,
 ]
 
